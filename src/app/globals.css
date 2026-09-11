@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Space+Grotesk:wght@300..700&display=swap');
+
+@import "tailwindcss";
+
+:root {
+  --neo-bg: #FFF8EF;
+  --neo-black: #111111;
+  --neo-border: #111111;
+  --neo-text: #111111;
+  --neo-shadow: #111111;
+  --font-space-grotesk: 'Space Grotesk', sans-serif;
+  --font-inter: 'Inter', sans-serif;
+}
+
+[data-theme="dark"] {
+  --neo-bg: #111111;
+  --neo-black: #FFF8EF;
+  --neo-border: #FFF8EF;
+  --neo-text: #FFF8EF;
+  --neo-shadow: #FFF8EF;
+}
+
+@theme {
+  --color-neo-bg: var(--neo-bg);
+  --color-neo-black: var(--neo-black);
+  --color-neo-border: var(--neo-border);
+  --color-neo-text: var(--neo-text);
+  --color-neo-shadow: var(--neo-shadow);
+  --color-neo-yellow: #FFD84D;
+  --color-neo-red: #FF6B6B;
+  --color-neo-purple: #B79DFF;
+  --color-neo-green: #C9F27B;
+  --color-neo-blue: #8ED8FF;
+  --font-space: var(--font-space-grotesk), sans-serif;
+  --font-inter: var(--font-inter), sans-serif;
+}
+
+body {
+  background-color: var(--neo-bg);
+  color: var(--neo-text);
+  font-family: var(--font-inter), sans-serif;
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Paper Grid Background */
+
+.paper-grid {
+  background-image: 
+    linear-gradient(to right, rgba(17, 17, 17, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(17, 17, 17, 0.04) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+[data-theme="dark"] .paper-grid {
+  background-image: 
+    linear-gradient(to right, rgba(255, 248, 239, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 248, 239, 0.04) 1px, transparent 1px);
+}
+
+/* Neo-brutalist custom helper elements */
+
+.neo-shadow {
+  box-shadow: 4px 4px 0px 0px var(--neo-shadow);
+}
+
+.neo-shadow-lg {
+  box-shadow: 8px 8px 0px 0px var(--neo-shadow);
+}
+
+.neo-shadow-sm {
+  box-shadow: 2px 2px 0px 0px var(--neo-shadow);
+}
+
+.neo-shadow-yellow {
+  box-shadow: 4px 4px 0px 0px #FFD84D;
+}
+
+.neo-shadow-red {
+  box-shadow: 4px 4px 0px 0px #FF6B6B;
+}
+
+.neo-shadow-purple {
+  box-shadow: 4px 4px 0px 0px #B79DFF;
+}
+
+.neo-shadow-green {
+  box-shadow: 4px 4px 0px 0px #C9F27B;
+}
+
+.neo-shadow-blue {
+  box-shadow: 4px 4px 0px 0px #8ED8FF;
+}
+
+.neo-border {
+  border: 4px solid var(--neo-border);
+}
+
+.neo-border-sm {
+  border: 2px solid var(--neo-border);
+}
+
+/* Custom Scrollbar for Neo-brutalism */
+
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--neo-bg);
+  border-left: 4px solid var(--neo-border);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #111111;
+  border: 2px solid var(--neo-bg);
+  border-radius: 4px;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb {
+  background: #FFF8EF;
+  border: 2px solid var(--neo-bg);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #FFD84D;
+}
+
+/* Custom Cursor */
+
+.custom-cursor-dot,
+.custom-cursor-ring {
+  display: none;
+}
+
+/* Hide cursor when custom cursor is active */
+
+@media (pointer: fine) {
+  .custom-cursor-active {
+    cursor: none;
+  }
+
+  .custom-cursor-active a,
+  .custom-cursor-active button,
+  .custom-cursor-active input,
+  .custom-cursor-active select,
+  .custom-cursor-active textarea,
+  .custom-cursor-active [role="button"],
+  .custom-cursor-active label {
+    cursor: none;
+  }
+
+  .custom-cursor-dot {
+    display: block;
+  }
+
+  .custom-cursor-ring {
+    display: flex;
+  }
+}
+
+/* Red Cross Cursor */
+
+.custom-cursor-active .custom-cursor-cross {
+  display: block;
+}
+
+/* Marquee Scroll animation styling */
+
+@keyframes marquee {
+  0% { 
+    transform: translateX(0%); 
+  }
+
+  100% { 
+    transform: translateX(-50%); 
+  }
+}
+
+.animate-marquee-slow {
+  animation: marquee 30s linear infinite;
+}
+
+.animate-marquee-fast {
+  animation: marquee 15s linear infinite;
+}
